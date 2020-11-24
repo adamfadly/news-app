@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-toolbar app dark fixed-header>
+    <v-app-bar app dark fixed-header>
       <v-toolbar-title class="text-uppercase grey--text">
         <span class="font-weight-light">Mocha</span>
         <span>News</span>
@@ -26,7 +26,7 @@
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
-    </v-toolbar>
+    </v-app-bar>
   </nav>
 </template>
 

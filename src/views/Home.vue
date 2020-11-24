@@ -7,6 +7,7 @@
 
 <script>
 // @ is an alias to /src
+import { getSourceList } from "@/services/sourceList";
 import Header from "@/components/Header.vue";
 import Card from "@/components/Card.vue";
 
@@ -15,6 +16,16 @@ export default {
   components: {
     Header,
     Card,
+  },
+  data() {
+    return {
+      lists: [],
+    };
+  },
+
+  async created() {
+    this.lists = await getSourceList();
+    console.log(this.lists);
   },
 };
 </script>

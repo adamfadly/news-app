@@ -1,14 +1,17 @@
 <template>
-  <div class="home">
+  <v-container class="grey lighten-5">
     <Header />
-
-    <Card
-      class="card-grid"
-      v-for="news in sourceLists"
-      :key="news.id"
-      :data="news"
-    />
-  </div>
+    <v-row no-gutters>
+      <v-col v-for="n in 3" :key="n" cols="12" sm="4">
+        <Card
+          class="card-grid"
+          v-for="news in sourceLists"
+          :key="news.id"
+          :data="news"
+        />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

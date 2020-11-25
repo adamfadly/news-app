@@ -1,7 +1,13 @@
 <template>
   <div class="home">
     <Header />
-    <Card />
+
+    <Card
+      class="card-grid"
+      v-for="news in sourceLists"
+      :key="news.id"
+      :data="news"
+    />
   </div>
 </template>
 
@@ -19,13 +25,19 @@ export default {
   },
   data() {
     return {
-      lists: [],
+      sourceLists: [],
     };
   },
 
   async created() {
-    this.lists = await getSourceList();
-    console.log(this.lists);
+    this.sourceLists = await getSourceList();
+    console.log(this.sourceLists);
   },
 };
 </script>
+
+<style>
+.card-grid {
+  display: flex;
+}
+</style>

@@ -5,12 +5,11 @@
         <v-icon large left>
           mdi-twitter
         </v-icon>
-        <span class="title font-weight-light">Twitter</span>
+        <span class="title font-weight-light">{{ data.name }}</span>
       </v-card-title>
 
       <v-card-text class="headline font-weight-bold">
-        "Turns out semicolon-less style is easier and safer in TS because most
-        gotcha edge cases are type invalid as well."
+        {{ data.description }}
       </v-card-text>
 
       <v-card-actions>
@@ -48,7 +47,7 @@
 export default {
   name: "Card",
   props: {
-    headlines: {
+    data: {
       type: Object,
     },
   },

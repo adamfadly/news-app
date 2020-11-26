@@ -28,12 +28,19 @@
             outlined
             text
             color="white lighten-2"
-            @click="clicked()"
+            @click="clickedOne()"
           >
-            Button A
+            Read More
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn outlined rounded text @click="clicked">
+          <v-btn
+            class="bg-dark"
+            raised
+            outlined
+            text
+            rounded
+            @click="clickedTwo()"
+          >
             Button B
           </v-btn>
         </v-list-item>
@@ -43,11 +50,16 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "Card",
   props: {
     data: {
       type: Object,
+    },
+    idx: {
+      type: Number,
     },
   },
 
@@ -55,9 +67,17 @@ export default {
     return {};
   },
   methods: {
-    clicked() {
-      return this.$emit("clicked");
+    ...mapMutations("headlines", ["HANDLE_CHANGED_INDEXCARD"]),
+    clickedOne() {
+      this.$emit("clicked-btn1");
     },
+    clickedTwo() {
+      this.$emit("clicked-btn2");
+      this.HANDLE_CHANGED_INDEXCARD(this.idx);
+    },
+  },
+  computed: {
+    // ...mapGetters("headlines", ["getAllSourceList"]),
   },
 };
 </script>

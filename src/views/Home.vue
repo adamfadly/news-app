@@ -4,9 +4,8 @@
     <v-row no-gutters>
       <v-col v-for="n in 3" :key="n" cols="12" sm="4">
         <Card
-          class="card-grid"
-          v-for="news in sourceLists"
-          :key="news.id"
+          v-for="(news, index) in getAllSourceList"
+          :key="index"
           :data="news"
         />
       </v-col>
@@ -15,10 +14,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import { getSourceList } from "@/services/sourceList";
 import Header from "@/components/Header.vue";
 import Card from "@/components/Card.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Home",
@@ -27,20 +25,18 @@ export default {
     Card,
   },
   data() {
-    return {
-      sourceLists: [],
-    };
+    return {};
   },
-
+  methods: {
+    ...mapActions("headlines", ["headlinesList"]),
+  },
+  computed: {
+    ...mapGetters("headlines", ["getAllSourceList"]),
+  },
   async created() {
-    this.sourceLists = await getSourceList();
-    console.log(this.sourceLists);
+    await this.headlinesList();
   },
 };
 </script>
 
-<style>
-.card-grid {
-  display: flex;
-}
-</style>
+<style></style>

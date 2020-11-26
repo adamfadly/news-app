@@ -22,11 +22,18 @@
 
       <v-card-actions>
         <v-list-item class="grow">
-          <v-btn class="bg-dark" raised outlined text color="white lighten-2">
+          <v-btn
+            class="bg-dark"
+            raised
+            outlined
+            text
+            color="white lighten-2"
+            @click="clicked"
+          >
             Button A
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn outlined rounded text>
+          <v-btn outlined rounded text @click="clicked">
             Button B
           </v-btn>
         </v-list-item>
@@ -46,6 +53,11 @@ export default {
 
   data() {
     return {};
+  },
+  methods: {
+    clicked() {
+      return;
+    },
   },
 };
 </script>

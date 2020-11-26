@@ -25,18 +25,18 @@ export default {
     Header,
     Card,
   },
-  data() {
-    return {};
-  },
   methods: {
     ...mapActions("headlines", ["headlinesList"]),
+
     goToDetail(name) {
       this.$router.push(`/detail/${name}`);
     },
   },
+
   computed: {
     ...mapGetters("headlines", ["getAllSourceList"]),
   },
+
   async created() {
     await this.headlinesList();
     console.log(this.getAllSourceList);

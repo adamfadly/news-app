@@ -7,7 +7,7 @@
       @save-dialog="savingChangeTitle()"
     />
     <v-row no-gutters>
-      <v-col cols="12" sm="4">
+      <v-col class="d-flex flex-wrap flex-row" cols="12" sl>
         <Card
           v-for="(news, index) in getAllSourceList"
           :key="index"

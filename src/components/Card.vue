@@ -6,6 +6,7 @@
       dark
       max-width="400"
       min-width="320"
+      height="400"
       elevation="3"
       outlined
       shaped

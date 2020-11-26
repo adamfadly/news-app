@@ -8,6 +8,13 @@
 
       <v-spacer></v-spacer>
 
+      <v-text-field
+        class="mt-6"
+        solo
+        label="Search"
+        append-icon="mdi-magnify"
+      ></v-text-field>
+
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"

@@ -28,7 +28,7 @@
             outlined
             text
             color="white lighten-2"
-            @click="clicked"
+            @click="clicked()"
           >
             Button A
           </v-btn>
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     clicked() {
-      return;
+      return this.$emit("clicked");
     },
   },
 };
@@ -72,11 +72,5 @@ export default {
 }
 .bg-green {
   background-color: green;
-}
-
-.text-limit-char {
-  display: block;
-  /* max-width: 400px; */
-  -webkit-line-clamp: 4; /* number of lines to show */
 }
 </style>

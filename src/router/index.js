@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Detail from "../views/Detail.vue";
+import Histories from "../views/Histories.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     path: "/detail/:title",
     name: "Detail",
     component: Detail
+  },
+  {
+    path: "/history",
+    name: "Histories",
+    component: Histories
   },
 ];
 

@@ -7,7 +7,7 @@
         </div>
       </router-link>
 
-      <v-toolbar-title class="text-uppercase grey--text">
+      <v-toolbar-title class="text-uppercase grey--text hide-name">
         <span class="font-weight-light">anatal</span>
         <span>News</span>
       </v-toolbar-title>
@@ -21,6 +21,10 @@
         append-icon="mdi-magnify"
         v-model="valueTyping"
       ></v-text-field>
+
+      <v-btn depressed dark class="ml-5" to="/history">
+        History
+      </v-btn>
     </v-app-bar>
   </nav>
 </template>
@@ -45,6 +49,16 @@ export default {
 </script>
 
 <style>
+@media only screen and (max-width: 700px) {
+  .hide-name {
+    display: none;
+  }
+}
+
+/* .hide-name {
+  display: block;
+} */
+
 .logo {
   text-align: center;
   color: #ffffff;

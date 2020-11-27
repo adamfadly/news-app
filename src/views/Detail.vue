@@ -80,9 +80,6 @@ export default {
       });
       this.loading = false;
     }
-
-    // console.log(nameSourceRoute);
-    // console.log(this.detailSource);
   },
 };
 </script>

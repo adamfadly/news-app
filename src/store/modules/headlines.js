@@ -5,11 +5,15 @@ export default ({
   state: {
 		news: [],
 		indexCard: "",
-		// newsBySearch: []
+		visitedPages: []
 	},
 	getters:{
 		getAllSourceList(state){
 			return state.news
+		},
+		
+		getAllVisitedPages(state){
+			return state.visitedPages
 		}
 	},
 	mutations: {
@@ -21,6 +25,10 @@ export default ({
 		},
 		HANDLE_CHANGED_VALUETITLE(state,payload) {
 			state.news[state.indexCard].title = payload
+		},
+
+		HANDLE_CHANGED_VISITED(state,payload) {
+			state.visitedPages.push(payload)
 		}
 	},
 	actions: {

@@ -25,7 +25,7 @@
 
       <v-card-text
         height="300"
-        class="subtitle font-weight-bold text-limit-char"
+        class="subtitle font-weight-bold text-limit-char font-title"
       >
         {{ data.title }}..
       </v-card-text>
@@ -72,9 +72,13 @@ export default {
     };
   },
   methods: {
-    ...mapMutations("headlines", ["HANDLE_CHANGED_INDEXCARD"]),
+    ...mapMutations("headlines", [
+      "HANDLE_CHANGED_INDEXCARD",
+      "HANDLE_CHANGED_VISITED",
+    ]),
 
     clickedOne() {
+      this.HANDLE_CHANGED_VISITED(this.data);
       this.$emit("clicked-btn1");
     },
     clickedTwo() {
@@ -82,13 +86,18 @@ export default {
       this.HANDLE_CHANGED_INDEXCARD(this.idx);
     },
   },
-  computed: {
-    // ...mapGetters("headlines", ["getAllSourceList"]),
-  },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+
+.font-title {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  font-size: 20px;
+}
+
 .text-limit-char {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;

@@ -3,16 +3,16 @@
     <v-dialog :persistent="true" v-model="dialog" width="600">
       <v-card>
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-card-title class="headline grey lighten-2">
-            Privacy Policy
+          <v-card-title text light class="headline blue lighten-10">
+            Edit Title
           </v-card-title>
           <v-container>
             <v-row class="d-flex justify-center">
-              <v-col cols="12" sm="6" md="4">
+              <v-col cols="12" sm="12" md="12">
                 <v-text-field
                   v-model="valueTitle"
                   label="Change Title"
-                  :counter="30"
+                  :counter="50"
                   :rules="titleRules"
                   required
                 ></v-text-field>
@@ -49,7 +49,7 @@ export default {
     titleRules: [
       (v) => !!v || "Headlines",
       (v) =>
-        (v && v.length <= 30) || "Headlines must be less than 30 characters",
+        (v && v.length <= 50) || "Headlines must be less than 30 characters",
     ],
   }),
   methods: {

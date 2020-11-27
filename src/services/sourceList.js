@@ -18,7 +18,7 @@ export async function getContentByFilter(value) {
 	.get(`https://newsapi.org/v2/top-headlines?q=${value}&apiKey=${API_KEY}`, { params: { 
 			_limit: 10}
 		})
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error.response.data.message));
   return response.data.articles;
 }
 

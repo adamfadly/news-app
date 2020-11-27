@@ -1,6 +1,5 @@
 <template>
   <v-container class="grey lighten-5">
-    <Header />
     <div v-if="loading" class="layer-on-top">
       <v-progress-circular
         indeterminate
@@ -72,9 +71,6 @@ export default {
   async created() {
     await this.headlinesList();
     this.loading = false;
-    // console.log(this.getAllSourceList);
   },
 };
 </script>
-
-<style></style>

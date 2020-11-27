@@ -72,6 +72,7 @@ export default {
   async created() {
     await this.headlinesList();
     this.loading = false;
+    // console.log(this.getAllSourceList);
   },
 };
 </script>

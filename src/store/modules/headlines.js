@@ -5,7 +5,7 @@ export default ({
   state: {
 		news: [],
 		indexCard: "",
-		newsBySearch: []
+		// newsBySearch: []
 	},
 	getters:{
 		getAllSourceList(state){

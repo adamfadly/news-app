@@ -1,11 +1,10 @@
 <template>
   <div class="wrapper--card">
     <v-card
-      class="mx-auto"
+      class="mx-auto flex-column justify-space-between m-auto"
       color="#26c6da"
       dark
-      max-width="400"
-      min-width="320"
+      width="320"
       height="400"
       elevation="3"
       outlined
@@ -17,11 +16,11 @@
         <span class="title font-weight-light">{{ data.name }}</span>
       </v-card-title>
 
-      <v-card-text class="headline font-weight-bold text-limit-char">
-        {{ data.description }}
+      <v-card-text class="headline text-limit-char">
+        {{ data.description }}..
       </v-card-text>
 
-      <v-card-actions>
+      <v-card-actions class="flex-child">
         <v-list-item class="grow">
           <v-btn
             class="bg-dark"
@@ -84,6 +83,17 @@ export default {
 </script>
 
 <style>
+.text-limit-char {
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  height: 275px;
+}
+
+.flex-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .wrapper--card {
   padding: 20px;
   margin: auto;

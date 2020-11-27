@@ -6,6 +6,7 @@
       </div>
     </div>
     <div v-else class="wrapper">
+      <p class="font-history">List Of History</p>
       <div v-for="(item, index) in getAllVisitedPages" :key="index" class="box">
         {{ item.title }}
       </div>
@@ -28,6 +29,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Charmonman:wght@700&display=swap");
 
 .wrapper {
   width: 100%;
@@ -35,6 +37,11 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.font-history {
+  font-family: "Charmonman", cursive;
+  font-weight: 700;
+  font-size: 2em;
 }
 
 .font-no-history {

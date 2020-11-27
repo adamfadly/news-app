@@ -33,13 +33,13 @@
       <v-card-actions class="flex-child">
         <v-list-item>
           <v-hover>
-            <v-btn outlined text @click="clickedOne()">
+            <v-btn outlined text @click="clickedBtn1()">
               Read More
             </v-btn>
           </v-hover>
           <v-spacer></v-spacer>
           <v-hover>
-            <v-btn outlined text @click="clickedTwo()">
+            <v-btn outlined text @click="clickedBtn2()">
               <v-icon small color="#ffff" class="mr-1">
                 mdi-pencil
               </v-icon>
@@ -71,17 +71,19 @@ export default {
       title: "",
     };
   },
+
   methods: {
     ...mapMutations("headlines", [
       "HANDLE_CHANGED_INDEXCARD",
       "HANDLE_CHANGED_VISITED",
     ]),
 
-    clickedOne() {
+    clickedBtn1() {
       this.HANDLE_CHANGED_VISITED(this.data);
       this.$emit("clicked-btn1");
     },
-    clickedTwo() {
+
+    clickedBtn2() {
       this.$emit("clicked-btn2");
       this.HANDLE_CHANGED_INDEXCARD(this.idx);
     },

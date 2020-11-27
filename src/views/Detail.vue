@@ -1,8 +1,7 @@
 <template>
   <div>
     <v-app>
-      <v-container>
-        <Header />
+      <v-container class="pt-10">
         <div v-if="loading" class="layer-on-top">
           <v-progress-circular
             indeterminate
@@ -43,14 +42,10 @@
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "Detail",
-  components: {
-    Header,
-  },
   data() {
     return {
       detailSource: {},

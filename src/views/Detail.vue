@@ -44,7 +44,7 @@
 
 <script>
 import Header from "@/components/Header.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Detail",
@@ -59,7 +59,6 @@ export default {
   },
 
   methods: {
-    ...mapActions("headlines", ["headlinesList"]),
     scrollToTop() {
       window.scrollTo(0, 0);
     },
@@ -71,13 +70,16 @@ export default {
 
   async created() {
     this.scrollToTop();
-    await this.headlinesList();
     let sourceLists = this.getAllSourceList;
     let nameSourceRoute = this.$route.params.title;
-    sourceLists.forEach((item) => {
-      if (item.title === nameSourceRoute) this.detailSource = item;
-    });
-    this.loading = false;
+    if (sourceLists.length == 0) {
+      this.$router.push("/");
+    } else {
+      sourceLists.forEach((item) => {
+        if (item.title === nameSourceRoute) this.detailSource = item;
+      });
+      this.loading = false;
+    }
 
     // console.log(nameSourceRoute);
     // console.log(this.detailSource);

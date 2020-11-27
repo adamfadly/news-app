@@ -49,8 +49,8 @@ Bellows are routes that used in the sever
             "author": "Matt Jancer, Gear Team",
             "title": "13 Best Black Friday Deals on Googl",
             "description": "Google has discounted its new Pixel.",
-            "url": "https://www.wired.com/story/              best-black-friday-google-deals-1-2020/",
-            "urlToImage": "https://media.wired.com/photos/              5f888e1e033aa21518af44c2/191,
+            "url": "https://www.wired.com/story/best-black-friday-google-deals-1-2020/",
+            "urlToImage": "https://media.wired.com/photos/5f888e1e033aa21518af44c2/191,
             "publishedAt": "2020-11-27",
             "content": "The Pixel 4A is a good deal if you
           }
@@ -65,7 +65,7 @@ Bellows are routes that used in the sever
         {
           "status": "error",
           "code": "apiKeyMissing",
-          "message": "Your API key is missing. Append this to the           URL with the apiKey param, or use the x-api-key HTTP          header."
+          "message": "Your API key is missing. Append this to the URL with the apiKey param, or use the x-api-key HTTPheader."
         }
         ```
 
@@ -93,7 +93,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
-    Make sure you have node js has been installed in your computer, then run the folder <b>client</b> the commands bellow in your terminal.
+    Make sure you have node js has been installed in your computer, then run the commands bellow in your terminal.
 
     ```
         $ npm run serve

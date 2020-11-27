@@ -45,10 +45,11 @@ export default {
   async created() {
     await this.headlinesList();
     let sourceLists = this.getAllSourceList;
-    let nameSourceRoute = this.$route.params.name;
+    let nameSourceRoute = this.$route.params.id;
     sourceLists.forEach((item) => {
-      if (item.name === nameSourceRoute) this.detailSource = item;
+      if (item.id === nameSourceRoute) this.detailSource = item;
     });
+    console.log(nameSourceRoute);
     console.log(this.detailSource);
   },
 };

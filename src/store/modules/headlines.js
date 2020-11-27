@@ -1,11 +1,11 @@
-import {getSourceList} from "../../services/sourceList"
+import {getSourceList, getContentByFilter} from "../../services/sourceList"
 
 export default ({
   namespaced: true,
   state: {
 		news: [],
-		// valueTitle: "",
-		indexCard: ""
+		indexCard: "",
+		newsBySearch: []
 	},
 	getters:{
 		getAllSourceList(state){
@@ -16,21 +16,24 @@ export default ({
 		HANDLE_CHANGE_NEWS(state,payload) {
 			state.news = payload
 		},
-		HANDLE_CHANGED_INDEXCARD(state,payload){
+		HANDLE_CHANGED_INDEXCARD(state,payload) {
 			state.indexCard = payload
 		},
-		HANDLE_CHANGED_VALUETITLE(state,payload){
-			// state.valueTitle = payload
+		HANDLE_CHANGED_VALUETITLE(state,payload) {
 			state.news[state.indexCard].description = payload
 		}
 	},
 	actions: {
-		async headlinesList({commit}){
+		async headlinesList({commit}) {
 			let payload = await getSourceList()
 			commit("HANDLE_CHANGE_NEWS", payload)
 		},
-		// changingTitle({commit, state}, payload) {
-		// 	commit("HANDLE_CHANGED_VALUETITLE", payload)
-		// }
+
+		async getListByTyping ({commit}, payload) {
+			let value = await getContentByFilter(payload)
+			commit("HANDLE_CHANGE_NEWS", value)
+
+			console.log(value)
+		}
 	},
 });

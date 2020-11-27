@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = '099148be22804e849a0c6fe022b7cf5e';
+const API_KEY = 'eaa83bedb0fa434fa6a6aaa481cb4d1a';
 
 export async function getSourceList() {
   const response = await axios
@@ -19,5 +19,6 @@ export async function getContentByFilter(value) {
 			_limit: 10}
 		})
     .catch((error) => console.log(error));
-  return response.data.sources;
+  return response.data.articles;
 }
+

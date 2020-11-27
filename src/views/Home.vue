@@ -60,7 +60,6 @@ export default {
 
   async created() {
     await this.headlinesList();
-    // console.log(this.getAllSourceList);
   },
 };
 </script>

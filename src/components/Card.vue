@@ -7,7 +7,7 @@
       dark
       width="320"
       height="400"
-      elevation="3"
+      elevation="11"
       tile
       loading
     >
@@ -23,33 +23,29 @@
         :src="data.urlToImage"
       ></v-img>
 
-      <v-card-text class="headline text-limit-char">
+      <v-card-text
+        height="300"
+        class="subtitle font-weight-bold text-limit-char"
+      >
         {{ data.title }}..
       </v-card-text>
 
       <v-card-actions class="flex-child">
-        <v-list-item class="grow">
-          <v-btn
-            class="bg-dark"
-            raised
-            outlined
-            text
-            color="white lighten-2"
-            @click="clickedOne()"
-          >
-            Read More
-          </v-btn>
+        <v-list-item>
+          <v-hover>
+            <v-btn outlined text @click="clickedOne()">
+              Read More
+            </v-btn>
+          </v-hover>
           <v-spacer></v-spacer>
-          <v-btn
-            class="bg-dark"
-            raised
-            outlined
-            text
-            rounded
-            @click="clickedTwo()"
-          >
-            Button B
-          </v-btn>
+          <v-hover>
+            <v-btn outlined text @click="clickedTwo()">
+              <v-icon small color="#ffff" class="mr-1">
+                mdi-pencil
+              </v-icon>
+              Edit title
+            </v-btn>
+          </v-hover>
         </v-list-item>
       </v-card-actions>
     </v-card>
@@ -71,10 +67,13 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      title: "",
+    };
   },
   methods: {
     ...mapMutations("headlines", ["HANDLE_CHANGED_INDEXCARD"]),
+
     clickedOne() {
       this.$emit("clicked-btn1");
     },
@@ -93,14 +92,15 @@ export default {
 .text-limit-char {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  height: px;
+  height: 160px;
 }
 
-.flex-child {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.bg-white {
+  background: white;
+  width: 100%;
+  padding: 10%;
 }
+
 .wrapper--card {
   padding: 20px;
   margin: auto;

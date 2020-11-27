@@ -3,6 +3,15 @@
     <v-app>
       <v-container>
         <Header />
+        <div v-if="loading" class="layer-on-top">
+          <v-progress-circular
+            indeterminate
+            :size="100"
+            width="6"
+            color="primary"
+          ></v-progress-circular>
+        </div>
+
         <div class="d-flex justify-center pt-10 align-center">
           <h1>{{ detailSource.title }}</h1>
         </div>
@@ -50,6 +59,9 @@ export default {
 
   methods: {
     ...mapActions("headlines", ["headlinesList"]),
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
   },
 
   computed: {
@@ -57,6 +69,7 @@ export default {
   },
 
   async created() {
+    this.scrollToTop();
     await this.headlinesList();
     let sourceLists = this.getAllSourceList;
     let nameSourceRoute = this.$route.params.title;
@@ -64,6 +77,7 @@ export default {
       if (item.title === nameSourceRoute) this.detailSource = item;
     });
     this.loading = false;
+
     // console.log(nameSourceRoute);
     // console.log(this.detailSource);
   },
@@ -73,5 +87,16 @@ export default {
 <style>
 .line-height {
   line-height: 200%;
+}
+
+.layer-on-top {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.v-progress-circular {
+  margin: 1rem;
 }
 </style>

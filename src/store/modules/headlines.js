@@ -20,7 +20,7 @@ export default ({
 			state.indexCard = payload
 		},
 		HANDLE_CHANGED_VALUETITLE(state,payload) {
-			state.news[state.indexCard].description = payload
+			state.news[state.indexCard].title = payload
 		}
 	},
 	actions: {

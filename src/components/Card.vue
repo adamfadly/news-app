@@ -1,23 +1,30 @@
 <template>
   <div class="wrapper--card">
     <v-card
-      class="mx-auto flex-column justify-space-between m-auto"
-      color="#26c6da"
+      class="mx-auto flex-column justify-space-between"
+      color="#3b7ebb"
+      rounded
       dark
       width="320"
       height="400"
       elevation="3"
-      outlined
-      shaped
       tile
       loading
     >
-      <v-card-title>
-        <span class="title font-weight-light">{{ data.name }}</span>
-      </v-card-title>
+      <div class="d-flex justify-space-between px-4">
+        <div>
+          <span class="font-weight-thin">{{ data.source.name }}</span>
+        </div>
+      </div>
+      <v-img
+        lazy-src="https://picsum.photos/id/11/10/6"
+        height="150"
+        aspect-ratio="1.7"
+        :src="data.urlToImage"
+      ></v-img>
 
       <v-card-text class="headline text-limit-char">
-        {{ data.description }}..
+        {{ data.title }}..
       </v-card-text>
 
       <v-card-actions class="flex-child">
@@ -86,7 +93,7 @@ export default {
 .text-limit-char {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  height: 275px;
+  height: px;
 }
 
 .flex-child {

@@ -13,7 +13,7 @@
           :key="index"
           :data="news"
           :idx="index"
-          @clicked-btn1="goToDetail(news.id)"
+          @clicked-btn1="goToDetail(news.title)"
           @clicked-btn2="triggerDialog()"
         />
       </v-col>
@@ -43,8 +43,8 @@ export default {
   methods: {
     ...mapActions("headlines", ["headlinesList"]),
 
-    goToDetail(id) {
-      this.$router.push(`/detail/${id}`);
+    goToDetail(name) {
+      this.$router.push(`/detail/${name}`);
     },
     triggerDialog() {
       this.dialog = !this.dialog;

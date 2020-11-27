@@ -3,15 +3,25 @@
     <v-app>
       <v-container>
         <Header />
-        <div class="d-flex justify-center pt-10">
-          <h1>News</h1>
+        <div class="d-flex justify-center pt-10 align-center">
+          <h1>{{ detailSource.title }}</h1>
         </div>
         <div class="pt-10">
-          <p class="font-weight-thin">source: {{ detailSource.name }}</p>
+          <p class="font-weight-thin text-uppercase">
+            source:
+            <span class="font-weight-bold">
+              {{ detailSource.source.name }}
+            </span>
+          </p>
         </div>
         <div>
+          <v-img
+            lazy-src="https://picsum.photos/id/11/10/6"
+            aspect-ratio="1.7"
+            :src="detailSource.urlToImage"
+          ></v-img>
           <p class="font-weight-regular line-height">
-            {{ detailSource.description }}
+            {{ detailSource.content }}
           </p>
         </div>
       </v-container>
@@ -45,9 +55,9 @@ export default {
   async created() {
     await this.headlinesList();
     let sourceLists = this.getAllSourceList;
-    let nameSourceRoute = this.$route.params.id;
+    let nameSourceRoute = this.$route.params.title;
     sourceLists.forEach((item) => {
-      if (item.id === nameSourceRoute) this.detailSource = item;
+      if (item.title === nameSourceRoute) this.detailSource = item;
     });
     console.log(nameSourceRoute);
     console.log(this.detailSource);

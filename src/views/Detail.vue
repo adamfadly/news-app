@@ -9,7 +9,10 @@
         <div class="pt-10">
           <p class="font-weight-thin text-uppercase">
             source:
-            <span class="font-weight-bold">
+            <span v-if="loading" class="font-weight-bold text-uppercase">
+              news APi
+            </span>
+            <span v-else class="font-weight-bold text-uppercase">
               {{ detailSource.source.name }}
             </span>
           </p>
@@ -41,6 +44,7 @@ export default {
   data() {
     return {
       detailSource: {},
+      loading: true,
     };
   },
 
@@ -59,8 +63,9 @@ export default {
     sourceLists.forEach((item) => {
       if (item.title === nameSourceRoute) this.detailSource = item;
     });
-    console.log(nameSourceRoute);
-    console.log(this.detailSource);
+    this.loading = false;
+    // console.log(nameSourceRoute);
+    // console.log(this.detailSource);
   },
 };
 </script>

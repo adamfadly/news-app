@@ -43,8 +43,8 @@ export default {
   methods: {
     ...mapActions("headlines", ["headlinesList"]),
 
-    goToDetail(name) {
-      this.$router.push(`/detail/${name}`);
+    goToDetail(title) {
+      this.$router.push(`/detail/${title}`);
     },
     triggerDialog() {
       this.dialog = !this.dialog;

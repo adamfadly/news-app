@@ -52,7 +52,7 @@ export default {
 }
 
 .pt {
-  padding-top: 10%;
+  padding-top: 1%;
 }
 .box {
   background-color: #c2bffb;

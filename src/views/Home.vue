@@ -1,5 +1,5 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container class="grey lighten-5 p-10">
     <div v-if="loading" class="layer-on-top">
       <v-progress-circular
         indeterminate

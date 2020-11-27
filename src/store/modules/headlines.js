@@ -40,8 +40,6 @@ export default ({
 		async getListByTyping ({commit}, payload) {
 			let value = await getContentByFilter(payload)
 			commit("HANDLE_CHANGE_NEWS", value)
-
-			console.log(value)
 		}
 	},
 });

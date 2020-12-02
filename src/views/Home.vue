@@ -16,7 +16,7 @@
       />
       <v-row no-gutters>
         <v-col class="d-flex flex-wrap flex-row" cols="12" sl>
-          <Card
+          <HeadlineCard
             v-for="(news, index) in getAllSourceList"
             :key="index"
             :data="news"
@@ -32,7 +32,7 @@
 
 <script>
 import Header from "@/components/Header.vue";
-import Card from "@/components/Card.vue";
+import HeadlineCard from "@/components/HeadlineCard.vue";
 import ModalPopUp from "@/components/ModalPopUp.vue";
 import { mapActions, mapGetters } from "vuex";
 
@@ -40,7 +40,7 @@ export default {
   name: "Home",
   components: {
     Header,
-    Card,
+    HeadlineCard,
     ModalPopUp,
   },
   data() {

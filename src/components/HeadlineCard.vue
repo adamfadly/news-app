@@ -56,7 +56,7 @@
 import { mapMutations } from "vuex";
 
 export default {
-  name: "Card",
+  name: "HeadlineCard",
   props: {
     data: {
       type: Object,

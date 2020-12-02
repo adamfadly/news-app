@@ -55,10 +55,6 @@ export default {
   }
 }
 
-/* .hide-name {
-  display: block;
-} */
-
 .logo {
   text-align: center;
   color: #ffffff;

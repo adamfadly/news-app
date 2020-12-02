@@ -1,4 +1,4 @@
-import {getSourceList, getContentByFilter} from "../../services/sourceList"
+import {topHeadlines, topHeadlinesByFilter} from "../../services/sourceList"
 
 export default ({
   namespaced: true,
@@ -33,13 +33,16 @@ export default ({
 	},
 	actions: {
 		async headlinesList({commit}) {
-			let payload = await getSourceList()
+			let payload = await topHeadlines()
 			commit("HANDLE_CHANGE_NEWS", payload)
 		},
 
-		async getListByTyping ({commit}, payload) {
-			let value = await getContentByFilter(payload)
+		async getHeadlinesByTyping ({commit}, payload) {
+			let value = await topHeadlinesByFilter(payload)
 			commit("HANDLE_CHANGE_NEWS", value)
 		}
 	},
 });
+
+
+// getHeadlinesByTyping

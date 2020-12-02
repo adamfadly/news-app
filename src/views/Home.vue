@@ -16,13 +16,13 @@
       />
       <v-row no-gutters>
         <v-col class="d-flex flex-wrap flex-row" cols="12" sl>
-          <Card
+          <HeadlineCard
             v-for="(news, index) in getAllSourceList"
             :key="index"
             :data="news"
             :idx="index"
-            @clicked-btn1="goToDetail(news.title)"
-            @clicked-btn2="triggerDialog()"
+            @read="onReadMore(news.title)"
+            @edit-title="onEditTitle()"
           />
         </v-col>
       </v-row>
@@ -32,7 +32,7 @@
 
 <script>
 import Header from "@/components/Header.vue";
-import Card from "@/components/Card.vue";
+import HeadlineCard from "@/components/HeadlineCard.vue";
 import ModalPopUp from "@/components/ModalPopUp.vue";
 import { mapActions, mapGetters } from "vuex";
 
@@ -40,7 +40,7 @@ export default {
   name: "Home",
   components: {
     Header,
-    Card,
+    HeadlineCard,
     ModalPopUp,
   },
   data() {
@@ -53,12 +53,22 @@ export default {
   methods: {
     ...mapActions("headlines", ["headlinesList"]),
 
+    onReadMore(title) {
+      this.goToDetail(title);
+    },
+
+    onEditTitle() {
+      this.triggerDialog();
+    },
+
     goToDetail(title) {
       this.$router.push(`/detail/${title}`);
     },
+
     triggerDialog() {
       this.dialog = !this.dialog;
     },
+
     savingChangeTitle() {
       this.triggerDialog();
     },

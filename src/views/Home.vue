@@ -21,8 +21,8 @@
             :key="index"
             :data="news"
             :idx="index"
-            @clicked-btn1="goToDetail(news.title)"
-            @clicked-btn2="triggerDialog()"
+            @read="onReadMore(news.title)"
+            @edit-title="onEditTitle()"
           />
         </v-col>
       </v-row>
@@ -53,12 +53,22 @@ export default {
   methods: {
     ...mapActions("headlines", ["headlinesList"]),
 
+    onReadMore(title) {
+      this.goToDetail(title);
+    },
+
+    onEditTitle() {
+      this.triggerDialog();
+    },
+
     goToDetail(title) {
       this.$router.push(`/detail/${title}`);
     },
+
     triggerDialog() {
       this.dialog = !this.dialog;
     },
+
     savingChangeTitle() {
       this.triggerDialog();
     },

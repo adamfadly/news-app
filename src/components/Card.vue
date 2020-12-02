@@ -33,13 +33,13 @@
       <v-card-actions class="flex-child">
         <v-list-item>
           <v-hover>
-            <v-btn outlined text @click="clickReadMore()">
+            <v-btn outlined text @click="onRead">
               Read More
             </v-btn>
           </v-hover>
           <v-spacer></v-spacer>
           <v-hover>
-            <v-btn outlined text @click="clickEditTitle()">
+            <v-btn outlined text @click="onEditTitle">
               <v-icon small color="#ffff" class="mr-1">
                 mdi-pencil
               </v-icon>
@@ -78,13 +78,13 @@ export default {
       "HANDLE_CHANGED_VISITED",
     ]),
 
-    clickReadMore() {
+    onRead() {
       this.HANDLE_CHANGED_VISITED(this.data);
-      this.$emit("clicked-btn1");
+      this.$emit("read");
     },
 
-    clickEditTitle() {
-      this.$emit("clicked-btn2");
+    onEditTitle() {
+      this.$emit("edit-title");
       this.HANDLE_CHANGED_INDEXCARD(this.idx);
     },
   },

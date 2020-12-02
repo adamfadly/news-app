@@ -38,11 +38,11 @@ export default {
     valueTyping: "",
   }),
   methods: {
-    ...mapActions("headlines", ["getListByTyping"]),
+    ...mapActions("headlines", ["getHeadlinesByTyping"]),
   },
   watch: {
     valueTyping(value) {
-      this.getListByTyping(value);
+      this.getHeadlinesByTyping(value);
     },
   },
 };

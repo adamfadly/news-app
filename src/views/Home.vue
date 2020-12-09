@@ -34,7 +34,7 @@
 import Header from "@/components/Header.vue";
 import HeadlineCard from "@/components/HeadlineCard.vue";
 import ModalPopUp from "@/components/ModalPopUp.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Home",
@@ -51,8 +51,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions("headlines", ["headlinesList"]),
-
     onReadMore(title) {
       this.goToDetail(title);
     },
@@ -78,8 +76,7 @@ export default {
     ...mapGetters("headlines", ["getAllSourceList"]),
   },
 
-  async created() {
-    await this.headlinesList();
+  created() {
     this.loading = false;
   },
 };

@@ -23,10 +23,9 @@ export async function topHeadlines() {
     headlines.title = item.title;
     headlines.url = item.url;
     headlines.picture = item.urlToImage;
-
     news.push(headlines);
   });
-  // console.log(news);
+
   return news;
 }
 
@@ -35,5 +34,22 @@ export async function topHeadlinesByFilter(value) {
   const response = await axios
     .get(`${BASE_URL}q=${value}&apiKey=${API_KEY}`)
     .catch((error) => console.log(error.response.data.message));
-  return response.data.articles;
+
+  let data = response.data.articles;
+  let news = [];
+  data.map((item, index) => {
+    let headlines = new Object();
+    headlines.id = index + 1;
+    headlines.author = item.author;
+    headlines.content = item.content;
+    headlines.description = item.description;
+    headlines.publishedAt = item.publishedAt;
+    headlines.name = item.source.name;
+    headlines.title = item.title;
+    headlines.url = item.url;
+    headlines.picture = item.urlToImage;
+    news.push(headlines);
+  });
+
+  return news;
 }

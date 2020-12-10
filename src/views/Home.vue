@@ -18,7 +18,7 @@
         <v-col class="d-flex flex-wrap flex-row" cols="12" sl>
           <HeadlineCard
             v-for="(news, index) in getAllSourceList"
-            :key="index"
+            :key="news.id"
             :news="news"
             :idx="index"
             @read="onReadMore(news.title)"
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-// import Header from "@/components/Header.vue";
 import HeadlineCard from "@/components/HeadlineCard.vue";
 import ModalPopUp from "@/components/ModalPopUp.vue";
 import { mapGetters } from "vuex";
@@ -39,7 +38,6 @@ import { mapGetters } from "vuex";
 export default {
   name: "Home",
   components: {
-    // Header,
     HeadlineCard,
     ModalPopUp,
   },

@@ -19,7 +19,7 @@
           <HeadlineCard
             v-for="(news, index) in getAllSourceList"
             :key="index"
-            :data="news"
+            :news="news"
             :idx="index"
             @read="onReadMore(news.title)"
             @edit-title="onEditTitle()"
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
+// import Header from "@/components/Header.vue";
 import HeadlineCard from "@/components/HeadlineCard.vue";
 import ModalPopUp from "@/components/ModalPopUp.vue";
 import { mapGetters } from "vuex";
@@ -39,7 +39,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "Home",
   components: {
-    Header,
+    // Header,
     HeadlineCard,
     ModalPopUp,
   },

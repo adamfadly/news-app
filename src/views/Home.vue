@@ -34,7 +34,7 @@
 import Header from "@/components/Header.vue";
 import HeadlineCard from "@/components/HeadlineCard.vue";
 import ModalPopUp from "@/components/ModalPopUp.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Home",
@@ -51,22 +51,20 @@ export default {
     };
   },
   methods: {
-    ...mapActions("headlines", ["headlinesList"]),
+    goToDetail(title) {
+      this.$router.push(`/detail/${title}`);
+    },
 
     onReadMore(title) {
       this.goToDetail(title);
     },
 
-    onEditTitle() {
-      this.triggerDialog();
-    },
-
-    goToDetail(title) {
-      this.$router.push(`/detail/${title}`);
-    },
-
     triggerDialog() {
       this.dialog = !this.dialog;
+    },
+
+    onEditTitle() {
+      this.triggerDialog();
     },
 
     savingChangeTitle() {
@@ -78,8 +76,7 @@ export default {
     ...mapGetters("headlines", ["getAllSourceList"]),
   },
 
-  async created() {
-    await this.headlinesList();
+  created() {
     this.loading = false;
   },
 };

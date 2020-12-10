@@ -79,8 +79,8 @@ export default {
     ]),
 
     onRead() {
-      this.HANDLE_CHANGED_VISITED(this.data);
       this.$emit("read");
+      this.HANDLE_CHANGED_VISITED(this.data);
     },
 
     onEditTitle() {

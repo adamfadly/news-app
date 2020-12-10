@@ -51,20 +51,20 @@ export default {
     };
   },
   methods: {
-    onReadMore(title) {
-      this.goToDetail(title);
-    },
-
-    onEditTitle() {
-      this.triggerDialog();
-    },
-
     goToDetail(title) {
       this.$router.push(`/detail/${title}`);
     },
 
+    onReadMore(title) {
+      this.goToDetail(title);
+    },
+
     triggerDialog() {
       this.dialog = !this.dialog;
+    },
+
+    onEditTitle() {
+      this.triggerDialog();
     },
 
     savingChangeTitle() {

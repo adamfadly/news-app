@@ -5,6 +5,7 @@ export default {
 
   state: {
     news: [],
+    newsFilter: [],
     indexCard: "",
     visitedPages: [],
   },
@@ -43,7 +44,7 @@ export default {
       commit("HANDLE_CHANGE_NEWS", payload);
     },
 
-    async getHeadlinesByTyping({ commit }, payload) {
+    async getHeadlinesByTyping({ commit, dispatch }, payload) {
       let value = await topHeadlinesByFilter(payload);
       commit("HANDLE_CHANGE_NEWS", value);
     },

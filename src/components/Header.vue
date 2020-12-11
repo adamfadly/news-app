@@ -44,9 +44,10 @@ export default {
 
   watch: {
     valueTyping(value) {
-      this.getHeadlinesByTyping(value);
       if (value === "") {
         this.headlinesList();
+      } else {
+        this.getHeadlinesByTyping(value);
       }
     },
   },

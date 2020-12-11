@@ -18,8 +18,8 @@
         <v-col class="d-flex flex-wrap flex-row" cols="12" sl>
           <HeadlineCard
             v-for="(news, index) in getAllSourceList"
-            :key="index"
-            :data="news"
+            :key="news.id"
+            :news="news"
             :idx="index"
             @read="onReadMore(news.title)"
             @edit-title="onEditTitle()"
@@ -31,15 +31,13 @@
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
 import HeadlineCard from "@/components/HeadlineCard.vue";
 import ModalPopUp from "@/components/ModalPopUp.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Home",
   components: {
-    Header,
     HeadlineCard,
     ModalPopUp,
   },
@@ -51,22 +49,20 @@ export default {
     };
   },
   methods: {
-    ...mapActions("headlines", ["headlinesList"]),
+    goToDetail(title) {
+      this.$router.push(`/detail/${title}`);
+    },
 
     onReadMore(title) {
       this.goToDetail(title);
     },
 
-    onEditTitle() {
-      this.triggerDialog();
-    },
-
-    goToDetail(title) {
-      this.$router.push(`/detail/${title}`);
-    },
-
     triggerDialog() {
       this.dialog = !this.dialog;
+    },
+
+    onEditTitle() {
+      this.triggerDialog();
     },
 
     savingChangeTitle() {
@@ -78,8 +74,7 @@ export default {
     ...mapGetters("headlines", ["getAllSourceList"]),
   },
 
-  async created() {
-    await this.headlinesList();
+  created() {
     this.loading = false;
   },
 };

@@ -37,12 +37,17 @@ export default {
   data: () => ({
     valueTyping: "",
   }),
+
   methods: {
-    ...mapActions("headlines", ["getHeadlinesByTyping"]),
+    ...mapActions("headlines", ["getHeadlinesByTyping", "headlinesList"]),
   },
+
   watch: {
     valueTyping(value) {
       this.getHeadlinesByTyping(value);
+      if (value === "") {
+        this.headlinesList();
+      }
     },
   },
 };

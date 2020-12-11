@@ -80,7 +80,7 @@ export default {
 
     onRead() {
       this.$emit("read");
-      this.HANDLE_CHANGED_VISITED(this.data);
+      this.HANDLE_CHANGED_VISITED(this.news);
     },
 
     onEditTitle() {

@@ -13,21 +13,21 @@
     >
       <div class="d-flex justify-space-between px-4">
         <div>
-          <span class="font-weight-thin">{{ data.source.name }}</span>
+          <span class="font-weight-thin">{{ news.name }}</span>
         </div>
       </div>
       <v-img
         lazy-src="https://picsum.photos/id/11/10/6"
         height="150"
         aspect-ratio="1.7"
-        :src="data.urlToImage"
+        :src="news.picture"
       ></v-img>
 
       <v-card-text
         height="300"
         class="subtitle font-weight-bold text-limit-char font-title"
       >
-        {{ data.title }}..
+        {{ news.title }}..
       </v-card-text>
 
       <v-card-actions class="flex-child">
@@ -58,7 +58,7 @@ import { mapMutations } from "vuex";
 export default {
   name: "HeadlineCard",
   props: {
-    data: {
+    news: {
       type: Object,
     },
     idx: {
@@ -80,7 +80,7 @@ export default {
 
     onRead() {
       this.$emit("read");
-      this.HANDLE_CHANGED_VISITED(this.data);
+      this.HANDLE_CHANGED_VISITED(this.news);
     },
 
     onEditTitle() {

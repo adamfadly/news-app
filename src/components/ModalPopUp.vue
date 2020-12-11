@@ -40,9 +40,11 @@ import { mapMutations } from "vuex";
 
 export default {
   name: "ModalPopUp",
+
   props: {
     dialog: Boolean,
   },
+
   data: () => ({
     valueTitle: "",
     valid: true,
@@ -60,6 +62,7 @@ export default {
       this.valueTitle = "";
       this.valid = false;
     },
+
     handleSave() {
       if (this.$refs.form.validate()) {
         this.$emit("save-dialog");

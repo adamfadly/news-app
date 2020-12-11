@@ -21,7 +21,7 @@
                 news APi
               </span>
               <span v-else class="font-weight-bold text-uppercase">
-                {{ detailSource.source.name }}
+                {{ detailSource.name }}
               </span>
             </p>
           </div>
@@ -29,7 +29,7 @@
             <v-img
               lazy-src="https://picsum.photos/id/11/10/6"
               aspect-ratio="1.7"
-              :src="detailSource.urlToImage"
+              :src="detailSource.picture"
             ></v-img>
             <p class="font-weight-regular line-height">
               {{ detailSource.content }}

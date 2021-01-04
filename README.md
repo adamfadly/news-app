@@ -7,7 +7,6 @@ by : Mochamad Adam Fadly
 ```
 API : https://newsapi.org/
 http client: http://localhost:8080/
-API_KEY : `4a8d86218ca74a4ebc7076239abcd406`
 ```
 
 #### Routes
